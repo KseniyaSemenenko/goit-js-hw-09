@@ -9,7 +9,7 @@ form.addEventListener('input', event => {
     localStorage.setItem('feedback-form-state', JSON.stringify(formData));
 })
 
-function populateForm() {
+document.addEventListener('DOMContentLoaded', populateForm => {
             const savedData = localStorage.getItem('feedback-form-state');
             if (savedData) {
                 const { email, message } = JSON.parse(savedData);
@@ -18,7 +18,7 @@ function populateForm() {
                 document.querySelector('input[name="email"]').value = email;
                 document.querySelector('textarea[name="message"]').value = message;
             }
-}
+})
         
 form.addEventListener('submit', event => {
     event.preventDefault();
